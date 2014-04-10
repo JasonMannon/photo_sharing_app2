@@ -1,4 +1,5 @@
 <h1>PhotoLoad</h1>
 <% Photo.all.each do |image| %>
   <%= image_tag image.image(:thumb) %>
+  posted_by <%= User.find(image.user_id).name %>
   <% end %>

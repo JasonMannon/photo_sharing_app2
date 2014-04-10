@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+<%= image_tag @user.avatar(:thumb) %>
+<br><br>
+<h1>Photos uploaded by <%= @user.name %></h1>
+
+  <%= image_tag Photo.find_by_user_id(session[:user_id]).image(:medium) %>
+

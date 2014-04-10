@@ -1,11 +1,13 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => { :multipart => true } do |f| %>
   <div class="form-group">
     <%= f.label "User Name" %>
     <%= f.text_field :name %><br>
+    <%= f.label "Avatar" %>
+    <%= f.file_field :avatar %>
     <%= f.label "Password" %>
     <%= f.password_field :password %><br>
-    <%= f.label "Password Confirmation" %>
-    <%= f.password_field :password_confirmation %><br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
   <%= f.submit(:class => 'btn btn-success') %>
 <% end %>
