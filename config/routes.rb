@@ -8,6 +8,8 @@ Photoload::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'myaccount/:id', to: 'users#show', as: 'myaccount'
   get 'new_upload', to: 'photos#new', as: "new_upload"
+  get 'photo/:id', to: 'photos#show', as: 'viewphoto'
   resources :users
   resources :sessions
+  resources :tags
 end

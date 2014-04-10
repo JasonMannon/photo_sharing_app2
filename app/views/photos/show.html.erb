@@ -1,0 +1,17 @@
+<h1>Hello</h1>
+
+
+<%= image_tag Photo.find_by_id(params[:id]).image %>
+<br>
+<h2><%= Photo.find_by_id(params[:id]).caption %></h2>
+
+<h3>Posted by: <%= @user.name %>
+
+<h4>Tag a user</h4>
+<h4>Tagged users</h4>
+
+
+<%= form_for @tag do |f| %>
+  <%= f.collection_check_boxes :user_id, User.all, :id, :name %>
+  <%= f.submit %>
+<% end %>

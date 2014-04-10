@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = User.all
     @photos = Photo.all
+    @tags = Tag.all
   end
 
   def show
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :photo_id, :avatar)
+    params.require(:user).permit(:name, :password, :user_id, :password_confirmation, :photo_id, :avatar)
   end
 
 end

@@ -1,8 +1,10 @@
 <h1>PhotoLoad</h1>
 <% if Photo.all != nil %>
 <% Photo.all.each do |image| %>
-  <%= image_tag image.image(:thumb) %>
-  posted_by <%= User.find(image.user_id).name %>
+  <%= link_to image_tag(image.image(:thumb)), photo_path(image.id)  %>
+  <br>
+  <%= image.caption %>, posted by: <%= User.find(image.user_id).name %>
+  <br>
   <% end %>
 <% else %>
 <p>No photos availible</p>
