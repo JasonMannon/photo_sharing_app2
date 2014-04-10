@@ -1,4 +1,4 @@
 <h1>PhotoLoad</h1>
 <% Photo.all.each do |image| %>
-  <%= image_tag image.image %>
+  <%= image_tag image.image(:thumb) %>
   <% end %>
