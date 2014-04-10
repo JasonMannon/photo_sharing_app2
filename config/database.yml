@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: photoload_development
+
+test:
+  adapter: postgresql
+  database: photoload_test
+
