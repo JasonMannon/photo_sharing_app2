@@ -2,6 +2,9 @@
 <%= image_tag @user.avatar(:thumb) %>
 <br><br>
 <h1>Photos uploaded by <%= @user.name %></h1>
-
+  <% if Photo.find_by_user_id(session[:user_id]) != nil %>
   <%= image_tag Photo.find_by_user_id(session[:user_id]).image(:medium) %>
+  <% else %>
+  <p>No photos uploaded</p>
+  <% end %>
 
