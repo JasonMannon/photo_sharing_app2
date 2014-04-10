@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_filter :authorize, only: [:edit, :update]
 
   def index
     @photos = Photo.all
@@ -6,6 +7,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+  end
 
   def create
     @photo = Photo.create(photo_params)
@@ -16,10 +18,12 @@ class PhotosController < ApplicationController
     end
   end
 
+  def show
+    @photo = Photo.find(params[:id])
   end
 
   private
   def photo_params
-   params.require(:photo).permit(:image)
+   params.require(:photo).permit(:image, :user_id)
   end
 end
